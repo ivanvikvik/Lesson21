@@ -25,10 +25,33 @@ public class ArraySorter {
 
     }
 
+    public static void selectedSortDesc(int[] array) {
 
-        public static void bubbleSortAsc(int[] array) {
+        if (array == null) {
+            throw new RuntimeException();
+        }
 
-        int count = 0;  // debug
+        for (int j = 0; j < array.length - 1; j++) {
+
+            int indexMaxElement = j;
+
+            for (int i = j + 1; i < array.length; i++) {
+                if (array[indexMaxElement] < array[i]) {
+                    indexMaxElement = i;
+                }
+            }
+
+            int t = array[j];
+            array[j] = array[indexMaxElement];
+            array[indexMaxElement] = t;
+
+        }
+
+    }
+
+    public static void bubbleSortAsc(int[] array) {
+
+//        int count = 0;  // debug
 
         if (array == null) {
 //            return;
@@ -37,7 +60,7 @@ public class ArraySorter {
 
         for (int j = 0; j < array.length - 1; j++) {
             for (int i = 0; i < array.length - 1 - j; i++) {
-                count++;    // debug
+         //       count++;    // debug
                 if (array[i] > array[i + 1]) {
                     int t = array[i];
                     array[i] = array[i + 1];
@@ -45,12 +68,12 @@ public class ArraySorter {
                 }
             }
         }
-        System.out.println("count = " + count);   // debug
+      //  System.out.println("count = " + count);   // debug
     }
 
     public static void bubbleSortDesc(int[] array) {
 
-        int count = 0;  // debug
+     //   int count = 0;  // debug
 
         if (array == null) {
 //            return;
@@ -59,7 +82,7 @@ public class ArraySorter {
 
         for (int j = 0; j < array.length - 1; j++) {
             for (int i = 0; i < array.length - 1 - j; i++) {
-                count++;    // debug
+       //         count++;    // debug
                 if (array[i] < array[i + 1]) {
                     int t = array[i];
                     array[i] = array[i + 1];
@@ -67,6 +90,6 @@ public class ArraySorter {
                 }
             }
         }
-        System.out.println("count = " + count);   // debug
+      //  System.out.println("count = " + count);   // debug
     }
 }
